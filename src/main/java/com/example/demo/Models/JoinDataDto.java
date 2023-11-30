@@ -4,15 +4,15 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
+
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Hello {
-    private String user;
-
-    public String wellcome(){
-        return "%s entrou na sala!".formatted(this.user);
-    }
+@ToString
+public class JoinDataDto{
+    private String username;
+    private boolean host;
 }

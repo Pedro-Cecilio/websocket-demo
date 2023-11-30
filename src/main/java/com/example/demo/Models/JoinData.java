@@ -1,5 +1,7 @@
 package com.example.demo.Models;
 
+import java.util.UUID;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,7 +11,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Message {
+public class JoinData {
     private String user;
-    private String msg;
+    private UUID token;
+    private boolean isHost;
 }
