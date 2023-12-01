@@ -14,5 +14,11 @@ import lombok.Setter;
 public class JoinData {
     private String user;
     private UUID token;
-    private boolean isHost;
+    private boolean host;
+
+    public JoinData(JoinDataDto dto){
+        this.user = dto.getUsername();
+        this.host = dto.isHost();
+        this.token = UUID.randomUUID();
+    }
 }
