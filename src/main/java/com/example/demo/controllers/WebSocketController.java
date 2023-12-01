@@ -1,5 +1,8 @@
 package com.example.demo.controllers;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.UUID;
 
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -11,20 +14,11 @@ import com.example.demo.Models.JoinDataDto;
 @Controller
 public class WebSocketController {
 
+    private HashMap<String, ArrayList<JoinDataDto>> participants = new HashMap<>();
     @MessageMapping("/room/{roomId}")
     @SendTo("/room/{roomId}")
-    public JoinDataDto joinRoom(@DestinationVariable("roomId") String roomId, JoinDataDto data) {
-        return data;
-    }
-
-
-    // @MessageMapping("/wellcome/{roomId}")
-    // @SendTo("/room/{roomId}")
-    // public String wellcome(@DestinationVariable("roomId") String roomId, String username) {
-    //     System.out.println(username);
-    //     return new Hello(username).wellcome();
-    // }
-
-
-    
+    public ArrayList<JoinDataDto> joinRoom(@DestinationVariable("roomId") String roomId, JoinDataDto data) {
+        participants.computeIfAbsent(roomId, k -> new ArrayList<>()).add(data);
+        return participants.get(roomId);
+    }  
 }
