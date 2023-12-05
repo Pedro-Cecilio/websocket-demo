@@ -1,4 +1,4 @@
-# Websocket-Spring Boot
+# Websocket - Spring Boot
 
 Este projeto utiliza o framework Spring Boot para implementar um sistema de comunicação em tempo real através de WebSockets. A aplicação é dividida em duas partes principais: a configuração do WebSocket e o controle da comunicação.
 
